@@ -1,0 +1,24 @@
+{
+    "users": [
+      {
+        "id": "1",
+        "name": "곽소형",
+        "nickname": "sally"
+      },
+      {
+        "id": "2",
+        "name": "김민혜",
+        "nickname": "effie"
+      },
+      {
+        "id": "3",
+        "name": "이주연",
+        "nickname": "aspyn"
+      },
+      {
+        "id": "4",
+        "name": "허정원",
+        "nickname": "rico"
+      }
+    ]
+  }
