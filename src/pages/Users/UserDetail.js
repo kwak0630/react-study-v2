@@ -4,10 +4,11 @@ import Header from "../layout/Header";
 import usersData from "./data.json";
 
 function UserDetail() {
-  console.log("야호")
-  console.log(usersData)
+  // console.log("야호")
   const { id } = useParams();
   const users = usersData.users.find(user => user.id === id);
+  // console.log(usersData)
+  // console.log(users)
 
   return (
     <>

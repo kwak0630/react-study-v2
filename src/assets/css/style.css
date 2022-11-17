@@ -158,14 +158,20 @@ body {
 }
 .layout .nav-box {
   position: absolute;
-  top: 18%;
+  top: 17.5%;
   left: 20px;
+  display: flex;
 }
 .layout .nav-box a {
   font-size: 30px;
 }
+.layout .nav-box a + a {
+  margin-left: 10px;
+}
 .layout .content {
+  position: relative;
   padding: 100px 30px;
+  height: 100%;
 }
 .layout .content .title-type {
   font-size: 30px;
@@ -177,7 +183,7 @@ body {
   text-align: center;
   transform: translate(-50%, -50%);
 }
-.layout .error span {
+.layout .error .ico-error {
   position: relative;
   display: block;
   width: 70px;
@@ -186,7 +192,7 @@ body {
   background: #222;
   border-radius: 100%;
 }
-.layout .error span:after {
+.layout .error .ico-error:after {
   content: "❕";
   position: absolute;
   top: 50%;
@@ -207,7 +213,9 @@ body {
   justify-content: space-between;
   width: 100%;
   padding: 20px 30px;
+  background: white;
   border-bottom: 1px solid #ddd;
+  z-index: 10;
 }
 .fixed-top [class^=btn-] {
   width: 30px;
@@ -304,7 +312,7 @@ body {
 .title-wrap .side {
   position: absolute;
   top: 4px;
-  right: 20px;
+  right: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -335,4 +343,67 @@ body {
 .user .user-info dl dt {
   width: 25%;
   font-weight: 600;
+}
+
+.board {
+  position: relative;
+  overflow-y: scroll;
+}
+.board .board-list {
+  padding: 40px 0 0;
+}
+.board .board-item {
+  position: relative;
+  display: flex;
+  margin-bottom: 18px;
+}
+.board .board-item span {
+  width: 15px;
+}
+.board .board-item span.num {
+  width: 30px;
+}
+.board .board-item .cont {
+  width: calc(100% - 30px);
+  padding: 0 10px 0 0;
+}
+.board .board-item .cont strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+.board .board-item .cont span {
+  font-size: 14px;
+  color: #444;
+}
+.board .board-item .btn-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  opacity: 0.2;
+}
+.board .detail-wrap h2 {
+  font-size: 21px;
+  font-family: Nunito, sans-serif;
+  font-weight: 900;
+}
+.board .detail-wrap .content {
+  padding: 40px 0;
+  font-size: 14px;
+  color: #444;
+}
+.board .detail-wrap .btn-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+.board .detail-wrap .btn-box .btn-delete {
+  width: 20px;
+}
+.board .detail-wrap .btn-box .btn-write {
+  width: 22px;
+  margin-right: 5px;
 }/*# sourceMappingURL=style.css.map */

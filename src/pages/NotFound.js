@@ -4,7 +4,7 @@ function NotFound() {
   return (
     <>
       <div className="error">
-        <span></span>
+        <span className="ico-error"></span>
         <p>Not Found</p>
       </div>
     </>

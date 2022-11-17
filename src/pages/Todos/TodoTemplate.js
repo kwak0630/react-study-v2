@@ -1,7 +1,4 @@
-// import React, { useState, useEffect, useRef, useContext } from 'react'
 import React from 'react'
-
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { TodoProvider } from './TodoContext';
 import { CategoryProvider } from './TabContext';
@@ -9,15 +6,10 @@ import styled from 'styled-components';
 
 import TodoNotice from './TodoNotice';
 import TodoHeader from './TodoHeader';
-import TodoTab from './TodoTab';
+// import TodoTab from './TodoTab';
 import TodoList from './TodoList';
 import TodoCreate from './TodoCreate';
 // import TodoEdit from './TodoEdit';
-
-
-// import Home from '../Home';
-// import NotFound from '../NotFound';
-// import Users from '../Users';
 
 const TodoTemplateBlock = styled.div`
   position: relative;
@@ -40,24 +32,15 @@ function TodoTemplate(){
       <TodoProvider>
         <CategoryProvider>
           <TodoTemplateBlock>
-          {/* <BrowserRouter> */}
             <TodoNotice/>
             <TodoHeader/>
-{/* 
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/Users" element={<Users />}></Route>\
-              <Route path="*" element={<NotFound />}></Route>
-            </Routes>
-           */}
-            <TodoTab />
+            {/* <TodoTab /> */}
             <TodoList  />
             <TodoCreate />
             {/* 
             {insertToggle && (
               <TodoEdit onUpdate={onUpdate} selectedTodo={selectedTodo} />
             )} */}
-            {/* </BrowserRouter> */}
           </TodoTemplateBlock>
         </CategoryProvider>
       </TodoProvider>

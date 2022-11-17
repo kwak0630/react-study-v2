@@ -7,7 +7,8 @@ import { useTodoState } from './TodoContext';
 // import Users from '../Users';
 
 const TodoHeaderBlock = styled.div`
-    padding:40px 0 0;
+    padding:40px 0 20px;
+    border-bottom: 1px solid #ddd;
     text-align: center;
     h1{
         font-size: 25px;
@@ -79,8 +80,8 @@ function TodoHeader(){
             <img className="sally" src={require('../../assets/images/ico_sally.png')} alt="sally icon" />
 
             <nav className="nav-box">
-            {/* <Link to="../components/Board">📔</Link> */}
-            <Link to="./pages/Users">👩🏻‍💻</Link>
+                <Link to="../pages/Board">📔</Link>
+                <Link to="./pages/Users">👩🏻‍💻</Link>
             </nav>
             <div className="header-box">
                 <span className='day'>{dateString}({dayName})</span>
