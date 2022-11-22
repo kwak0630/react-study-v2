@@ -126,28 +126,28 @@ function TodoCreate(){
     <TodoCreateBlock>
       {/* {open && ( */}
       <form onSubmit={onSubmit}>
-          <CreateBox open={open}>
-              <input
-                  type="text"
-                  className="input-text" 
-                  placeholder='할 일을 입력하세요.'
-                  value={value}
-                  onChange={onChange}
-                  ref={ref}
-              />
-              <button 
-                  type="submit" 
-                  className='btn-type'
-                  onClick={onSubmit}
-                  onKeyPress={onKeyPress}
-              >
-                  추가
-              </button>
-          </CreateBox>
+        <CreateBox open={open}>
+          <input
+            type="text"
+            className="input-text" 
+            placeholder='할 일을 입력하세요.'
+            value={value}
+            onChange={onChange}
+            ref={ref}
+          />
+          <button 
+            type="submit" 
+            className='btn-type'
+            onClick={onSubmit}
+            onKeyPress={onKeyPress}
+          >
+            추가
+          </button>
+        </CreateBox>
       </form>
       {/* )} */}
       <CreateBtn onClick={onToggle} open={open}>
-          추가
+        추가
       </CreateBtn>
     </TodoCreateBlock>
   )
