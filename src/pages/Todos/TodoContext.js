@@ -58,20 +58,6 @@ const initialTodos = [
   }
 ];
 
-// function todoReducer(state, action) {
-//   switch (action.type) {
-//     case 'CREATE':
-//       return state.concat(action.todo);
-//     case 'CHECK':
-//       return state.map(todo =>
-//         todo.id === action.id ? { ...todo, done: !todo.done } : todo
-//       );
-//     case 'REMOVE':
-//       return state.filter(todo => todo.id !== action.id);
-//     default:
-//       throw new Error(`Unhandled action type: ${action.type}`);
-//   }
-// }
 const todoReducer = (state, action) => {
   let newState = [];
   switch (action.type) {
@@ -87,11 +73,8 @@ const todoReducer = (state, action) => {
       break;
     }
     case 'EDIT': {
-      // console.log("open2")
       newState = state.map(todo => todo.id === action.id ? { ...todo, text: action.text } : todo);
-
-      console.log(newState)
-      // setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text } : todo)));
+      // console.log(newState) 
       break;
     }
     case 'CHECK':{

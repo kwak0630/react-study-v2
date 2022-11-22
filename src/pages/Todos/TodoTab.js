@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 // import { useTodoState } from './TodoContext';
-import { useCategoryState } from './TabContext'; 
+// import { useCategoryState } from './TabContext'; 
 
 const TodoTabBlock = styled.div`
   padding: 0 0 20px;
@@ -25,39 +25,21 @@ const TodoTabBlock = styled.div`
   }
 `;
 
-function TodoTab () {
-  // const todos = useTodoState();
-  const categories = useCategoryState();
-  // const dispatch = useCategoryDispatch();
-
-  // const onToggle = () => dispatch({ type: 'TOGGLE', id })
-
-
-  // 탭 클릭 (카테고리 변경)
-  const onChangeCategory = (id) => {
-    categories.map((category) => {
-      return category.id === id ? { ...category, active: true } : { ...category, active: false}
-    })
-
-    // const currentCategory = id;
-    // console.log("🌀🌀🌀click: " + id)
-    // console.log("💈💈💈Tab currentCatrgory: "+currentCategory)
-  }
-
+function TodoTab ({categories, onChangeCategory}) {
   return(
     <TodoTabBlock>
       <ul className="tab-wrap">
-          {categories.map((category) =>
-            <li
-              key={category.id}
-              id={category.id}
-              // onClick={onToggle}
-              className={category.active ? 'active' : ''}
-              onClick={() => onChangeCategory(category.id)}
-            >
-              <span>{category.id}</span>
-            </li>
-          )}
+        {categories.map((category) =>
+          <li
+            key={category.id}
+            // id={category.id}
+            // onClick={onToggle}
+            className={category.active ? 'active' : ''}
+            onClick={() => onChangeCategory(category.id)}
+          >
+            <span>{category.id}</span>
+          </li>
+        )}
       </ul>
     </TodoTabBlock>
   )

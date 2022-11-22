@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import { TodoProvider } from './TodoContext';
 import { CategoryProvider } from './TabContext';
@@ -6,10 +6,9 @@ import styled from 'styled-components';
 
 import TodoNotice from './TodoNotice';
 import TodoHeader from './TodoHeader';
-// import TodoTab from './TodoTab';
+import TodoTab from './TodoTab';
 import TodoList from './TodoList';
 import TodoCreate from './TodoCreate';
-// import TodoEdit from './TodoEdit';
 
 const TodoTemplateBlock = styled.div`
   position: relative;
@@ -28,53 +27,50 @@ const TodoTemplateBlock = styled.div`
 `;
 
 function TodoTemplate(){
-  // 할 일 수정
-  // const [selectedTodo, setSelectedTodo] = useState(null);
-  // const [insertToggle, setInsertToggle] = useState(false);
-  // const onInsertToggle = () => {
-  //   console.log("open")
-  //   if (selectedTodo) {
-  //     setSelectedTodo(null);
-  //   }
-  //   setInsertToggle((prev) => !prev);
-  // };
-  // const onChangeSelectedTodo = (todo) => {
-  //   setSelectedTodo(todo);
-  // };
-  // const onUpdate = (id, text) => {
-  //   onInsertToggle();
-    
-  //   console.log(id);
-  //   console.log(text);
-  //   setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text } : todo)));
 
+  // 카테고리
+  const [categories, setCategories] = useState([
+    { 
+      id: 'all', 
+      active: true 
+    },
+    { 
+      id: 'complete', 
+      active: false 
+    },
+    { 
+      id: 'incomplete', 
+      active: false 
+    },
+  ]);
 
-  //   const newList = 
-  //     todos.map((todo) => 
-  //       (todo.id === id ? { ...todo, text } : todo)
-  //     );
-
-  //     setTodos(newList);
-  //     localStorage.setItem('todos', JSON.stringify(newList));
-  // };
-
-    return (
-      <TodoProvider>
-        <CategoryProvider>
-          <TodoTemplateBlock>
-            <TodoNotice/>
-            <TodoHeader/>
-            {/* <TodoTab /> */}
-            <TodoList  />
-            <TodoCreate />
-            
-            {/* {insertToggle && (
-              <TodoEdit onUpdate={onUpdate} selectedTodo={selectedTodo} />
-            )} */}
-          </TodoTemplateBlock>
-        </CategoryProvider>
-      </TodoProvider>
-    )
+  // 탭 클릭 (카테고리 변경)
+  const onChangeCategory = (id) => {
+    setCategories(
+      categories.map((category) => {
+        return category.id === id ? { ...category, active: true } : { ...category, active: false}
+      })
+    );
+      // console.log(id)
+  }
+  return (
+    <TodoProvider>
+      <CategoryProvider>
+        <TodoTemplateBlock>
+          <TodoNotice/>
+          <TodoHeader/>
+          <TodoTab
+            categories={categories}
+            onChangeCategory={onChangeCategory}
+          />
+          <TodoList 
+            categories={categories}
+          />
+          <TodoCreate />
+        </TodoTemplateBlock>
+      </CategoryProvider>
+    </TodoProvider>
+  )
 }
 
 export default TodoTemplate;

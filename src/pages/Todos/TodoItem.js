@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled, {css} from 'styled-components';
 import { useTodoDispatch } from './TodoContext';
-// import TodoEdit from './TodoEdit';
 
 const Check = styled.div`
     width: 23px;
@@ -135,9 +134,7 @@ function TodoItem({id, text, done}){
   const onRemove = () => dispatch({ type: 'REMOVE', id })
   const onEdit = () => dispatch({ type: 'EDIT', id, text: value, done: false })
 
-
   const [mode, setMode] = useState(true);
-  // const [value, setValue] = useState(text);
   const [value, setValue] = useState('');
   
   const onChangeText  = (e) =>{
@@ -146,13 +143,11 @@ function TodoItem({id, text, done}){
 
   const onClickChange = () => {
     setMode(false);
-    // e.preventDefault(); // onSubmit 이벤트는 브라우저를 새로고치기 때문에 막아주기
   };
 	
   // mode 변경 -> true (초기 화면 렌더링)
   const onCancleChange = () => {
     setMode(true);
-    // e.preventDefault(); // onSubmit 이벤트는 브라우저를 새로고치기 때문에 막아주기
   };
 
   const onKeyPress = (e) => {
@@ -162,8 +157,8 @@ function TodoItem({id, text, done}){
   };
 
   const onChange = () => {
-    console.log(id)
-    console.log(value)
+    // console.log(id)
+    // console.log(value)
 
     onEdit();
 
@@ -201,7 +196,6 @@ function TodoItem({id, text, done}){
       ) : (
         <BtnBox>
           <button onClick={onCancleChange}>취소</button>
-
           <button 
             type="submit" 
             onClick={onChange}
@@ -211,21 +205,6 @@ function TodoItem({id, text, done}){
           </button>
         </BtnBox>
       )}
-      {/* {insertToggle && (
-        <TodoEdit onUpdate={onUpdate} selectedTodo={selectedTodo} />
-      )} */}
-      {/* {mode ? (
-        <div>
-          <p style={{ color: done ? 'green' : 'black' }}>{text}</p>
-          <button onClick={onClickChange}>수정</button>
-        </div>
-      ) : (
-        <div>
-          <input value={text} onChange={onChangeText} />
-          <button onClick={onCancleChange}>취소</button>
-          <button onClick={() => onChange(id, text)}>수정완료</button>
-        </div>
-      )} */}
     </TodoItemBlock>
   )
 }

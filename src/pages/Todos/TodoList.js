@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTodoState } from './TodoContext';
-import { useCategoryState } from './TabContext';
 import TodoItem from './TodoItem';
 
 const TodoListBlock = styled.div`
@@ -10,29 +9,21 @@ const TodoListBlock = styled.div`
   overflow-y:scroll;
 `;
 
-function TodoList(){
+function TodoList({ categories }){
   const todos = useTodoState();
-  const categories = useCategoryState();
-  // const _todos = todos;
 
   const [
     { 
-      id: currentCategory 
+        id: currentCategory 
     }
   ] = categories.filter(category => category.active === true);
 
-  // console.log("todos: " +todos.todo)
   let _todos = todos;
 
-  // console.log("List currentCategory: "+currentCategory)
-
   if (currentCategory === 'incomplete') { //미완료
-    console.log("응?")
-    _todos = todos.filter(todo => todo.done === false);
-
+      _todos = todos.filter(todo => todo.done === false);
   } else if (currentCategory === 'complete') { //완료
-    console.log("응응??")
-    _todos = todos.filter(todo => todo.done === true);
+      _todos = todos.filter(todo => todo.done === true);
   }
 
   return (

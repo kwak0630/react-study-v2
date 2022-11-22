@@ -92,10 +92,9 @@ function TodoCreate(){
   // 클릭시 오픈/닫기
   const onToggle = () => {
     setOpen(!open);
-
     ref.current.focus();
   }
-  // 이벤트가 발생할 때마다(글자가 하나씩 입력될 때 마다) 변화를 감지
+  
   const onChange = (e) =>{
     setValue(e.target.value);
   }
@@ -108,21 +107,15 @@ function TodoCreate(){
   const onSubmit = (e) => {
     e.preventDefault(); // onSubmit 이벤트는 브라우저를 새로고치기 때문에 막아주기
 
-    
     setValue("");
     setOpen(!open);
-    // submit을 한 후에는 input 창을 비우기
     nextId.current ++; 
-
   };
 
   useEffect(() => {
     ref.current.focus();
 
     const localData = localStorage.getItem('todos');
-    // console.log(localData)
-    //   console.log(TodoList);
-    //   console.log(nextId);
     if (localData) {
       const TodoList = JSON.parse(localData);
       dispatch({ type: 'INIT', todo: TodoList });
@@ -130,34 +123,33 @@ function TodoCreate(){
   });
   
   return (
-      <TodoCreateBlock>
-          {/* {open && ( */}
-          <form onSubmit={onSubmit}>
-              <CreateBox open={open}>
-                  <input
-                      type="text"
-                      className="input-text" 
-                      placeholder='할 일을 입력하세요.'
-                      value={value}
-                      onChange={onChange}
-                      ref={ref}
-                  />
-                  <button 
-                      type="submit" 
-                      className='btn-type'
-                      onClick={onSubmit}
-                      onKeyPress={onKeyPress}
-                  >
-                      추가
-                  </button>
-              </CreateBox>
-          </form>
-          {/* )} */}
-          <CreateBtn onClick={onToggle} open={open}>
-              추가
-          </CreateBtn>
-      </TodoCreateBlock>
+    <TodoCreateBlock>
+      {/* {open && ( */}
+      <form onSubmit={onSubmit}>
+          <CreateBox open={open}>
+              <input
+                  type="text"
+                  className="input-text" 
+                  placeholder='할 일을 입력하세요.'
+                  value={value}
+                  onChange={onChange}
+                  ref={ref}
+              />
+              <button 
+                  type="submit" 
+                  className='btn-type'
+                  onClick={onSubmit}
+                  onKeyPress={onKeyPress}
+              >
+                  추가
+              </button>
+          </CreateBox>
+      </form>
+      {/* )} */}
+      <CreateBtn onClick={onToggle} open={open}>
+          추가
+      </CreateBtn>
+    </TodoCreateBlock>
   )
 }
-
 export default React.memo(TodoCreate);

@@ -7,8 +7,7 @@ import { useTodoState } from './TodoContext';
 // import Users from '../Users';
 
 const TodoHeaderBlock = styled.div`
-    padding:40px 0 20px;
-    border-bottom: 1px solid #ddd;
+    padding:40px 0 0;
     text-align: center;
     h1{
         font-size: 25px;
@@ -56,7 +55,6 @@ const TodoHeaderBlock = styled.div`
 function TodoHeader(){
     
     const todos = useTodoState();
-    // console.log(todos);
 
     // 날짜
     const today = new Date();
@@ -78,7 +76,6 @@ function TodoHeader(){
     return (
         <TodoHeaderBlock>
             <img className="sally" src={require('../../assets/images/ico_sally.png')} alt="sally icon" />
-
             <nav className="nav-box">
                 <Link to="../pages/Board">📔</Link>
                 <Link to="./pages/Users">👩🏻‍💻</Link>
