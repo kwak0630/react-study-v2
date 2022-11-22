@@ -39,9 +39,9 @@ function TodoTab () {
       return category.id === id ? { ...category, active: true } : { ...category, active: false}
     })
 
-    const currentCategory = id;
-    console.log("🌀🌀🌀click: " + id)
-    console.log("💈💈💈Tab currentCatrgory: "+currentCategory)
+    // const currentCategory = id;
+    // console.log("🌀🌀🌀click: " + id)
+    // console.log("💈💈💈Tab currentCatrgory: "+currentCategory)
   }
 
   return(

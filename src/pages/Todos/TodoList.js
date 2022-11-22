@@ -24,7 +24,7 @@ function TodoList(){
   // console.log("todos: " +todos.todo)
   let _todos = todos;
 
-  console.log("List currentCategory: "+currentCategory)
+  // console.log("List currentCategory: "+currentCategory)
 
   if (currentCategory === 'incomplete') { //미완료
     console.log("응?")

@@ -28,6 +28,36 @@ const TodoTemplateBlock = styled.div`
 `;
 
 function TodoTemplate(){
+  // 할 일 수정
+  // const [selectedTodo, setSelectedTodo] = useState(null);
+  // const [insertToggle, setInsertToggle] = useState(false);
+  // const onInsertToggle = () => {
+  //   console.log("open")
+  //   if (selectedTodo) {
+  //     setSelectedTodo(null);
+  //   }
+  //   setInsertToggle((prev) => !prev);
+  // };
+  // const onChangeSelectedTodo = (todo) => {
+  //   setSelectedTodo(todo);
+  // };
+  // const onUpdate = (id, text) => {
+  //   onInsertToggle();
+    
+  //   console.log(id);
+  //   console.log(text);
+  //   setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text } : todo)));
+
+
+  //   const newList = 
+  //     todos.map((todo) => 
+  //       (todo.id === id ? { ...todo, text } : todo)
+  //     );
+
+  //     setTodos(newList);
+  //     localStorage.setItem('todos', JSON.stringify(newList));
+  // };
+
     return (
       <TodoProvider>
         <CategoryProvider>
@@ -37,8 +67,8 @@ function TodoTemplate(){
             {/* <TodoTab /> */}
             <TodoList  />
             <TodoCreate />
-            {/* 
-            {insertToggle && (
+            
+            {/* {insertToggle && (
               <TodoEdit onUpdate={onUpdate} selectedTodo={selectedTodo} />
             )} */}
           </TodoTemplateBlock>

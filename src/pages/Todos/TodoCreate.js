@@ -86,11 +86,8 @@ function TodoCreate(){
   const [value, setValue] = useState('');
   const ref = useRef();
 
-
   const dispatch = useTodoDispatch();
   const nextId = useTodoNextId();
-
-
 
   // 클릭시 오픈/닫기
   const onToggle = () => {
@@ -111,23 +108,26 @@ function TodoCreate(){
   const onSubmit = (e) => {
     e.preventDefault(); // onSubmit 이벤트는 브라우저를 새로고치기 때문에 막아주기
 
-    dispatch({
-      type: 'CREATE',
-      todo: {
-        id: nextId.current,
-        text: value,
-        done: false,
-      }
-    })
+    
     setValue("");
     setOpen(!open);
     // submit을 한 후에는 input 창을 비우기
     nextId.current ++; 
+
   };
 
   useEffect(() => {
     ref.current.focus();
-  }, []);
+
+    const localData = localStorage.getItem('todos');
+    // console.log(localData)
+    //   console.log(TodoList);
+    //   console.log(nextId);
+    if (localData) {
+      const TodoList = JSON.parse(localData);
+      dispatch({ type: 'INIT', todo: TodoList });
+    }
+  });
   
   return (
       <TodoCreateBlock>

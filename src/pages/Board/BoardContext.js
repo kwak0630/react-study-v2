@@ -55,47 +55,47 @@ const initialBoards = [
 
 function BoardReducer(state, action) {
 //     let newState = [];
-//   switch (action.type) {
-//     // case 'CREATE':
-//     //   return state.concat(action.Board);
-//     // case 'CHECK':
-//     //   return state.map(Board =>
-//     //     Board.id === action.id ? { ...Board, done: !Board.done } : Board
-//     //   );
-//     case 'REMOVE':
-//     //   return state.filter(Board => Board.id !== action.id);
-
-//         return newState = state.filter((Board) => Board.id !== action.id);
-//         // break;
-//     default:
-//       throw new Error(`Unhandled action type: ${action.type}`);
-//   }
-
-  let newState = [];
   switch (action.type) {
-    // case 'INIT': {
-    //   return action.data;
-    // }
-    // case 'CREATE': {
-    //   newState = [action.data, ...state];
-    //   break;
-    // }
-    case 'REMOVE': {
-      newState = state.filter((Board) => Board.id !== action.id);
-      break;
-    }
-    // case 'EDIT': {
-    //   newState = state.map((it) =>
-    //     it.id === action.data.id ? { ...action.data } : it,
+    // case 'CREATE':
+    //   return state.concat(action.Board);
+    // case 'CHECK':
+    //   return state.map(Board =>
+    //     Board.id === action.id ? { ...Board, done: !Board.done } : Board
     //   );
-    //   break;
-    // }
+    // case 'REMOVE':
+    //   return state.filter(Board => Board.id !== action.id);
+
+        // return newState = state.filter((Board) => Board.id !== action.id);
+        // break;
     default:
-      return state;
+      throw new Error(`Unhandled action type: ${action.type}`);
   }
 
-  localStorage.setItem('boardItems', JSON.stringify(newState));
-  return newState;
+//   let newState = [];
+//   switch (action.type) {
+//     // case 'INIT': {
+//     //   return action.data;
+//     // }
+//     // case 'CREATE': {
+//     //   newState = [action.data, ...state];
+//     //   break;
+//     // }
+//     case 'REMOVE': {
+//       newState = state.filter((Board) => Board.id !== action.id);
+//       break;
+//     }
+//     // case 'EDIT': {
+//     //   newState = state.map((it) =>
+//     //     it.id === action.data.id ? { ...action.data } : it,
+//     //   );
+//     //   break;
+//     // }
+//     default:
+//       return state;
+//   }
+
+//   localStorage.setItem('boardItems', JSON.stringify(newState));
+//   return newState;
 }
 
 const BoardStateContext = createContext();

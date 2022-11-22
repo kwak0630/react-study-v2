@@ -1,7 +1,6 @@
 
 import React from 'react'
 import "../../assets/css/style.scss"
-
 import TodoTemplate from './TodoTemplate';
 
 function Todos() {

@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const TodoEditBlock = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0%;
     width: 100%;
     height: 100%;
+    z-index: 10;
 
     &:before{
         position:absolute;
@@ -68,6 +69,7 @@ function TodoEdit ({selectedTodo, onUpdate}){
     const [value, setValue] = useState('');
     const ref = useRef();
 
+
     // 이벤트가 발생할 때마다(글자가 하나씩 입력될 때 마다) 변화를 감지
     const onChange = (e) =>{
         setValue(e.target.value);
@@ -78,25 +80,45 @@ function TodoEdit ({selectedTodo, onUpdate}){
             onSubmit();
         }
     };
+
     const onSubmit = (e) => {
         onUpdate(selectedTodo.id, value);
-        setValue("");// submit을 한 후에는 input 창을 비우기
+        console.log("!!!!" + selectedTodo.id, value)
 
+        // dispatch({
+        //     type: 'EDIT',
+        //     todo: {
+        //     //   id: id,
+        //     text: value,
+        //     done: false,
+        //     }
+        // })
+        setValue("");// submit을 한 후에는 input 창을 비우기
         e.preventDefault(); // onSubmit 이벤트는 브라우저를 새로고치기 때문에 막아주기
     };
 
     useEffect(() => {
         ref.current.focus();
-        if (selectedTodo) {
-            setValue(selectedTodo.text);
-        }
-    }, [selectedTodo]);
+        // if (selectedTodo) {
+        //     setValue(selectedTodo.text);
+        // }
+
+
+        // const localData = localStorage.getItem('todos');
+        // // console.log(localData)
+        // //   console.log(TodoList);
+        // //   console.log(nextId);
+        // if (localData) {
+        // const TodoList = JSON.parse(localData);
+        // dispatch({ type: 'INIT', todo: TodoList });
+        // }
+    });
 
     return (
         <TodoEditBlock>
             <div className="edit-wrap">
-            <h2>수정하기</h2>
-            <form>
+                <h2>수정하기</h2>
+                <form>
                     <input
                         type="text"
                         className="input-text" 
@@ -113,7 +135,7 @@ function TodoEdit ({selectedTodo, onUpdate}){
                     >
                         수정
                     </button>
-            </form>
+                </form>
             </div>
         </TodoEditBlock>
     );
