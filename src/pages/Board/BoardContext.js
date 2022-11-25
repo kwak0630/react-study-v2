@@ -58,10 +58,10 @@ const BoardReducer = (state, action) => {
     case 'INIT': {
       return action.board;
     }
-    // case 'CREATE': {
-    //   newState2 = [action.todo, ...state];
-    //   break;
-    // }
+    case 'CREATE': {
+      newState2 = [action.board, ...state];
+      break;
+    }
     case 'REMOVE': {
       // newState2 = state.filter((board) => board.id !== action.id);
 
@@ -79,68 +79,17 @@ const BoardReducer = (state, action) => {
     //   // console.log(newState) 
     //   break;
     // }
-    // case 'CHECK':{
-    //   newState2 = state.map(todo => todo.id === action.id ? { ...todo, done: !todo.done } : todo);
-    //   break;
-    // }
     default:
       return state;
   }
 
-
-  console.log("*********************")
-  console.log("localStorage")
+  console.log("=======================")
+  console.log("📌 localStorage 📌")
   localStorage.setItem('BoardItems', JSON.stringify(newState2));
   console.log(newState2)
   console.log("=======================")
   return newState2;
 };
-
-
-// function BoardReducer(state, action) {
-// //     let newState = [];
-//   switch (action.type) {
-//     // case 'CREATE':
-//     //   return state.concat(action.Board);
-//     // case 'CHECK':
-//     //   return state.map(Board =>
-//     //     Board.id === action.id ? { ...Board, done: !Board.done } : Board
-//     //   );
-//     // case 'REMOVE':
-//     //   return state.filter(Board => Board.id !== action.id);
-
-//         // return newState = state.filter((Board) => Board.id !== action.id);
-//         // break;
-//     default:
-//       throw new Error(`Unhandled action type: ${action.type}`);
-//   }
-
-// //   let newState = [];
-// //   switch (action.type) {
-// //     // case 'INIT': {
-// //     //   return action.data;
-// //     // }
-// //     // case 'CREATE': {
-// //     //   newState = [action.data, ...state];
-// //     //   break;
-// //     // }
-// //     case 'REMOVE': {
-// //       newState = state.filter((Board) => Board.id !== action.id);
-// //       break;
-// //     }
-// //     // case 'EDIT': {
-// //     //   newState = state.map((it) =>
-// //     //     it.id === action.data.id ? { ...action.data } : it,
-// //     //   );
-// //     //   break;
-// //     // }
-// //     default:
-// //       return state;
-// //   }
-
-// //   localStorage.setItem('boardItems', JSON.stringify(newState));
-// //   return newState;
-// }
 
 const BoardStateContext = createContext();
 const BoardDispatchContext = createContext();
@@ -148,7 +97,7 @@ const BoardNextIdContext = createContext();
 
 export function BoardProvider({ children }) {
   const [state, dispatch] = useReducer(BoardReducer, initialBoards);
-  const nextId = useRef(0);
+  const nextId = useRef(11);
 
   return (
     <BoardStateContext.Provider value={state}>

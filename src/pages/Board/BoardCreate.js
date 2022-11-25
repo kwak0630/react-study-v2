@@ -1,19 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Header from "../layout/Header";
 import { BoardProvider } from './BoardContext';
-import BoardList from "./BoardList";
+import BoardCreateContent from './BoardCreateContent';
 
-function Board() {
+function BoardCreate() {
   return (
     <BoardProvider>
       <Header></Header>
       <div className="content board">
-          <BoardList></BoardList>
-          <Link to={`BoardCreate`} className="btn-add">추가</Link>
+        <BoardCreateContent />
       </div>
     </BoardProvider>
   );
 }
 
-export default Board;
+export default BoardCreate;

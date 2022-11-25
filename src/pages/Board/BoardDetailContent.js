@@ -22,7 +22,6 @@ function BoardDetailContent() {
   const onDelete = () => {
     onRemove();
     navigate(-1);
-    
     // const deleteItem = items.id !== id
     // console.log(deleteItem)
     // setBoardItems(deleteItem);

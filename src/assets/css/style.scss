@@ -199,6 +199,12 @@ body {
 		}
 	}
 }
+.form-wrap{
+	text-align: center;
+	.btn-type{
+		margin: 50px auto 0;
+	}
+}
 .form-item {
 	position: relative;
 	input {
@@ -357,6 +363,38 @@ body {
 				width: 22px;
 				margin-right:5px;
 			}
+		}
+	}
+	.btn-add{
+		position: absolute;
+		bottom: 30px;
+		right: 30px;
+		width: 55px;
+		height: 55px;
+		border-radius: 100%;
+		background: #ffe281;
+		font-size: 0;
+		&:before{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 20px;
+			height: 2px;
+			background: #000;
+			transform: translate(-50%, -50%);
+			transition: 0.125s all ease-in;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 2px;
+			height: 20px;
+			background: #000;
+			transform: translate(-50%, -50%);
+			transition: 0.125s all ease-in;
 		}
 	}
 }

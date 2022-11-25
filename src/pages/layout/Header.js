@@ -3,13 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 function Header(){
     let navigate = useNavigate();
-
-    // const history = createBrowserHistory();
-
     function goHome() {
       navigate("../../");
     }
-
     function goBack() {
 		navigate(-1);
 	}

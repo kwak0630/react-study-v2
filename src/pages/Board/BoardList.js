@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useBoardState } from './BoardContext';
+import { useBoardState, useBoardDispatch  } from './BoardContext';
 import BoardPagination from './BoardPagination';
 
 function BoardList() {
   const boardItems = useBoardState();
+  const dispatch = useBoardDispatch();
 
   const [limit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
-  console.log(boardItems)
+  // console.log(boardItems)
+  
+  useEffect(() => {
+    const localData = localStorage.getItem('BoardItems');
+    if (localData) {
+      const BoardList = JSON.parse(localData);
+      dispatch({ type: 'INIT', board: BoardList });
+    }
+  }, []);
   
   return (
     <>
