@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import { TodoProvider } from './TodoContext';
-import { CategoryProvider } from './TabContext';
+// import { CategoryProvider } from './TabContext';
 import styled from 'styled-components';
 
 import TodoNotice from './TodoNotice';
@@ -55,20 +55,18 @@ function TodoTemplate(){
   }
   return (
     <TodoProvider>
-      <CategoryProvider>
-        <TodoTemplateBlock>
-          <TodoNotice/>
-          <TodoHeader/>
-          <TodoTab
-            categories={categories}
-            onChangeCategory={onChangeCategory}
-          />
-          <TodoList 
-            categories={categories}
-          />
-          <TodoCreate />
-        </TodoTemplateBlock>
-      </CategoryProvider>
+      <TodoTemplateBlock>
+        <TodoNotice/>
+        <TodoHeader/>
+        <TodoTab
+          categories={categories}
+          onChangeCategory={onChangeCategory}
+        />
+        <TodoList 
+          categories={categories}
+        />
+        <TodoCreate />
+      </TodoTemplateBlock>
     </TodoProvider>
   )
 }

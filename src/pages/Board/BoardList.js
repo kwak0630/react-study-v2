@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useBoardState, useBoardDispatch  } from './BoardContext';
+import { useBoardState, useBoardDispatch, useBoardNextId } from './BoardContext';
 import BoardPagination from './BoardPagination';
 
 function BoardList() {
   const boardItems = useBoardState();
   const dispatch = useBoardDispatch();
+  const nextId = useBoardNextId();
 
   const [limit] = useState(5);
   const [page, setPage] = useState(1);
@@ -16,8 +17,17 @@ function BoardList() {
   useEffect(() => {
     const localData = localStorage.getItem('BoardItems');
     if (localData) {
-      const BoardList = JSON.parse(localData);
-      dispatch({ type: 'INIT', board: BoardList });
+      // const BoardList = JSON.parse(localData);
+      // dispatch({ type: 'INIT', board: BoardList });
+
+        const BoardList = JSON.parse(localData).sort(
+          //(a, b) => parseInt(b.id) - parseInt(a.id),
+      );
+
+      if (BoardList.length >= 1) {
+          nextId.current = parseInt(BoardList[0].id) + 1;
+          dispatch({ type: 'INIT', board: BoardList });
+      }
     }
   }, []);
   

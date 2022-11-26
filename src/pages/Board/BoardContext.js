@@ -2,55 +2,30 @@ import React, { useReducer, createContext, useContext, useRef } from 'react';
 
 const initialBoards = [
     {
-        id: 0,
+        id: 10,
         title: '게시판 만들기 완성 ✌🏻',
         content: 'router 이용해서 링크 연결하고 게시판 만들었다~~~'
       },
       {
-        id: 1,
+        id: 11,
         title: '리액트란 .. 몰까 .. ',
         content: '이해할만 하면 또 어렵고 할만하면 어렵고 ^^'
       },
       {
-        id: 2,
+        id: 12,
         title: '시간이 안 가는 이번 주',
         content: '왜 아직도 목요일 왜 아직도 목요일 왜 아직도 목요일 왜 아직도 목요일'
       },
       {
-        id: 3,
+        id: 13,
         title: '해야할 것 ✅',
         content: '게시판 작성, 게시판 수정, 게시판 삭제 등등.. <br/>아마도 갤러리랑 일반 목록 나누기랑 이미지도 나오게 해야되지 않을까<br/><br/><br/> 할거 너무 많다.. <br/>머리 아프구만 😇'
       },
       {
-        id: 4,
+        id: 14,
         title: 'test5',
         content: 'test 중 test 중 test 중<br/>test 중 test 중 test 중 test 중 test 중 test 중 test 중 test 중 test 중 test 중 test 중 test 중 test 중'
       },
-      {
-        id: 5,
-        title: 'test6',
-        content: 'test 중'
-      },
-      {
-        id: 6,
-        title: 'test7',
-        content: 'test 중'
-      },
-      {
-        id: 7,
-        title: 'test8',
-        content: 'test 중'
-      },
-      {
-        id: 8,
-        title: 'test9',
-        content: 'test 중'
-      },
-      {
-        id: 9,
-        title: 'test10',
-        content: 'test 중'
-      }
 ];
 const BoardReducer = (state, action) => {
   let newState2 = [];
@@ -65,13 +40,12 @@ const BoardReducer = (state, action) => {
     case 'REMOVE': {
       // newState2 = state.filter((board) => board.id !== action.id);
 
-      newState2 = state.filter((board, id)=>{ return parseInt(action.id) !== id; });
-      console.log("*********************")
-      console.log("newState2")
-      console.log(newState2)
-      // console.log("*********************")
-      // console.log(action)
-      // console.log(action.id)
+      // newState2 = state.filter((id)=>{ return parseInt(action.id) !== id; });
+
+      newState2 = state.filter((board) => board.id !== action.id);
+
+      console.log(action)
+      console.log(action.id)
       break;
     }
     // case 'EDIT': {
@@ -97,7 +71,7 @@ const BoardNextIdContext = createContext();
 
 export function BoardProvider({ children }) {
   const [state, dispatch] = useReducer(BoardReducer, initialBoards);
-  const nextId = useRef(11);
+  const nextId = useRef(0);
 
   return (
     <BoardStateContext.Provider value={state}>

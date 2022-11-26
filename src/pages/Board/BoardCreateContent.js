@@ -20,18 +20,22 @@ function BoardCreate() {
         content,
       },
     });
-    nextId.current ++; 
+    nextId.current += 1;
 
-    // navigate("/pages/Board");
+    navigate(-1);
   };
 
   useEffect(() => {
     const localData = localStorage.getItem('BoardItems');
     if (localData) {
-      const BoardList = JSON.parse(localData);
+        const BoardList = JSON.parse(localData).sort(
+            //(a, b) => parseInt(b.id) - parseInt(a.id),
+        );
 
-    //   nextId.current = parseInt(BoardList[0].id) + 1
-      dispatch({ type: 'INIT', board: BoardList });
+        if (BoardList.length >= 1) {
+            nextId.current = parseInt(BoardList[0].id) + 1;
+            dispatch({ type: 'INIT', board: BoardList });
+        }
     }
   });
   
@@ -56,9 +60,9 @@ function BoardCreate() {
         </textarea>
         </div>
         <button 
-        type="submit" 
-        className='btn-type'
-        onClick={onSubmit}
+            type="submit" 
+            className='btn-type'
+            onClick={onSubmit}
         >
         등록하기
         </button>

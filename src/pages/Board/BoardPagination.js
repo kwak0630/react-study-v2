@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 
 const PaginationBlock = styled.div`
-  margin-top: 45px;
   text-align: center;
   button{
     width: 15px;

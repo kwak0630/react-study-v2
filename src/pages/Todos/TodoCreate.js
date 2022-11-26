@@ -107,9 +107,17 @@ function TodoCreate(){
   const onSubmit = (e) => {
     e.preventDefault(); // onSubmit 이벤트는 브라우저를 새로고치기 때문에 막아주기
 
+    dispatch({
+      type: 'CREATE',
+      todo: {
+        id: nextId.current,
+        text: value,
+      },
+    });
+    nextId.current += 1;
+
     setValue("");
     setOpen(!open);
-    nextId.current ++; 
   };
 
   useEffect(() => {

@@ -107,7 +107,7 @@ body {
 
 	.content{
 		position: relative;
-		padding: 100px 30px;
+		padding: 100px 30px 30px;
 		height: 100%;
 		.title-type{
 			font-size: 30px;
@@ -218,7 +218,7 @@ body {
 	}
 	
 	textarea {
-		min-height:200px;
+		min-height:300px;
 		overflow: auto;
 		padding: 20px;
 		resize: none;
@@ -296,6 +296,7 @@ body {
 	position: relative;
 	overflow-y: scroll;
 	.board-list{
+		min-height: 50vh;
 		padding:40px 0 0;
 	}
 	.board-item{
@@ -336,10 +337,11 @@ body {
 	}
 
 	.detail-wrap{
-		// position: relative;
+		position: relative;
 		h2{
 			// padding: 0 0 20px;
 			// border-bottom:1px solid #ddd;
+			width: 80%;
 			font-size: 21px;
 			font-family: Nunito, sans-serif;
 			font-weight: 900;
@@ -352,8 +354,8 @@ body {
 
 		.btn-box{
 			position:absolute;
-			bottom: 20px;
-			right:20px;
+			top: 4.5px;
+			right:-10px;
 			display:flex;
 			align-items:center;
 			.btn-delete{
@@ -361,7 +363,7 @@ body {
 			}
 			.btn-write{
 				width: 22px;
-				margin-right:5px;
+				margin-right:10px;
 			}
 		}
 	}

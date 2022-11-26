@@ -170,7 +170,7 @@ body {
 }
 .layout .content {
   position: relative;
-  padding: 100px 30px;
+  padding: 100px 30px 30px;
   height: 100%;
 }
 .layout .content .title-type {
@@ -282,7 +282,7 @@ body {
   font-family: Nunito, sans-serif;
 }
 .form-item textarea {
-  min-height: 200px;
+  min-height: 300px;
   overflow: auto;
   padding: 20px;
   resize: none;
@@ -357,6 +357,7 @@ body {
   overflow-y: scroll;
 }
 .board .board-list {
+  min-height: 50vh;
   padding: 40px 0 0;
 }
 .board .board-item {
@@ -390,7 +391,11 @@ body {
   width: 20px;
   opacity: 0.2;
 }
+.board .detail-wrap {
+  position: relative;
+}
 .board .detail-wrap h2 {
+  width: 80%;
   font-size: 21px;
   font-family: Nunito, sans-serif;
   font-weight: 900;
@@ -402,8 +407,8 @@ body {
 }
 .board .detail-wrap .btn-box {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  top: 4.5px;
+  right: -10px;
   display: flex;
   align-items: center;
 }
@@ -412,7 +417,7 @@ body {
 }
 .board .detail-wrap .btn-box .btn-write {
   width: 22px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .board .btn-add {
   position: absolute;

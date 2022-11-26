@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useParams } from "react-router";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useBoardDispatch } from './BoardContext';
@@ -13,28 +13,49 @@ function BoardDetailContent() {
   const content = location.state.content;
 
   const dispatch = useBoardDispatch();
-  const onRemove = () => dispatch({ type: 'REMOVE', id })
+  // const onRemove = () => dispatch({ type: 'REMOVE', id })
 
+  console.log(id)
   // console.log(items)
-
   // // 삭제
-  // const [setBoardItems] = useState("");
-  const onDelete = () => {
-    onRemove();
+  const onDelete = (id) => {
+    dispatch({
+      type: 'REMOVE',
+      id,
+    });
+  
     navigate(-1);
-    // const deleteItem = items.id !== id
-    // console.log(deleteItem)
-    // setBoardItems(deleteItem);
   };
+
+  useEffect(() => {
+    // const localData = localStorage.getItem('BoardItems');
+    // if (localData) {
+    //     const BoardList = JSON.parse(localData).sort(
+    //         //(a, b) => parseInt(b.id) - parseInt(a.id),
+    //     );
+
+    //     if (BoardList.length >= 1) {
+    //         // nextId.current = parseInt(BoardList[0].id) + 1;
+    //         dispatch({ type: 'INIT', board: BoardList });
+    //     }
+    // }
+  });
+
+
+  // 수정
+  const onEdit = () => {
+    alert("작업 중")
+  }
 
   return (
     <>
       <h2>{title}</h2>
       <div className="btn-box">
-        {/* <button
+        <button
+          onClick={onEdit}
         >
-        <img className="btn-write" src={require('../assets/images/ico_write.png')} alt="write icon" />
-        </button> */}
+          <img className="btn-write" src={require('../../assets/images/ico_write.png')} alt="write icon" />
+        </button>
         <button 
           onClick={() => {
             if (window.confirm(`삭제하시겠습니까?`)) {
