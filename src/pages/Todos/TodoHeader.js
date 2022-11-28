@@ -77,6 +77,7 @@ function TodoHeader(){
         <TodoHeaderBlock>
             <img className="sally" src={require('../../assets/images/ico_sally.png')} alt="sally icon" />
             <nav className="nav-box">
+                <Link to="../pages/Gallery">📸</Link>
                 <Link to="../pages/Board">📔</Link>
                 <Link to="./pages/Users">👩🏻‍💻</Link>
             </nav>

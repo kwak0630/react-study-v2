@@ -28,17 +28,7 @@ function BoardDetailContent() {
   };
 
   useEffect(() => {
-    // const localData = localStorage.getItem('BoardItems');
-    // if (localData) {
-    //     const BoardList = JSON.parse(localData).sort(
-    //         //(a, b) => parseInt(b.id) - parseInt(a.id),
-    //     );
 
-    //     if (BoardList.length >= 1) {
-    //         // nextId.current = parseInt(BoardList[0].id) + 1;
-    //         dispatch({ type: 'INIT', board: BoardList });
-    //     }
-    // }
   });
 
 
@@ -66,7 +56,6 @@ function BoardDetailContent() {
         >
           <img className="btn-delete" src={require('../../assets/images/ico_delete.png')} alt="delete icon" />
         </button>
-        {/* <button onClick={() => onDelete(id)}><img className="btn-delete" src={require('../assets/images/ico_delete.png')} alt="delete icon" /></button> */}
       </div>
       <div className="content">
         {content.split("<br/>").map((line, index) => { //this.props.data.content: 내용

@@ -14,7 +14,7 @@ const initialTodos = [
   {
     id: 2,
     text: '목록, 등록, 수정, 삭제, 체크 작업',
-    done: false
+    done: true
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const initialTodos = [
   {
     id: 5,
     text: '카테고리 탭 나누기',
-    done: false
+    done: true
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const initialTodos = [
   {
     id: 9,
     text: '더보기(페이징) 목록',
-    done: false
+    done: true
   },
   {
     id: 10,
